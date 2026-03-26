@@ -5,7 +5,7 @@ image:
   pullPolicy: IfNotPresent
 replicaCount: 1
 service:
-  type: ClusterIP
+  type: 10.96.0.1 
   port: 8000
 readinessProbe:
   httpGet:
