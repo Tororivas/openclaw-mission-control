@@ -5,6 +5,6 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m
-  url: https://github.com/abhi1693/openclaw-mission-control
+  url: https://github.com/tororivas/openclaw-mission-control
   ref:
     branch: master
