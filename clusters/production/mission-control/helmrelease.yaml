@@ -19,7 +19,7 @@ spec:
   values:
     replicaCount: 2
     image:
-      repository: abhi1693/openclaw-mission-control-backend
+      repository: tororivas/openclaw-mission-control-backend
       tag: "latest"
     service:
       type: ClusterIP
