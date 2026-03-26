@@ -1,0 +1,27 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: mission-control
+  namespace: mission-control
+spec:
+  interval: 5m
+  releaseName: mission-control
+  chart:
+    spec:
+      # path to the chart inside the repository
+      chart: ./deploy/helm/mission-control
+      # reference the GitRepository defined above
+      sourceRef:
+        kind: GitRepository
+        name: openclaw-mission-control
+        namespace: flux-system
+      interval: 1m
+  values:
+    replicaCount: 2
+    image:
+      repository: abhi1693/openclaw-mission-control-backend
+      tag: "latest"
+    service:
+      type: ClusterIP
+      port: 8000
+    # Optionally set ingress.hosts and ingress.enabled to true to create an Ingress

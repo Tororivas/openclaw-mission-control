@@ -1,0 +1,8 @@
+1. Get the application URL by running these commands:
+
+  NOTE: The chart creates a Service named {{ include "mission-control.fullname" . }} on port {{ .Values.service.port }}
+
+  kubectl get svc -l app.kubernetes.io/name=mission-control
+
+If you enabled ingress, configure DNS for the host you set in values.yaml
+

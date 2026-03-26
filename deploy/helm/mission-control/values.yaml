@@ -1,0 +1,30 @@
+# Default values for mission-control
+image:
+  repository: abhi1693/openclaw-mission-control-backend
+  tag: "latest"
+  pullPolicy: IfNotPresent
+replicaCount: 1
+service:
+  type: ClusterIP
+  port: 8000
+readinessProbe:
+  httpGet:
+    path: /health
+    port: 8000
+  initialDelaySeconds: 5
+  periodSeconds: 10
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 8000
+  initialDelaySeconds: 15
+  periodSeconds: 20
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+ingress:
+  enabled: false
+  hosts: []
+  annotations: {}
+env: []

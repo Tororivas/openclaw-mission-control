@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: openclaw-mission-control
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: https://github.com/abhi1693/openclaw-mission-control
+  ref:
+    branch: master
