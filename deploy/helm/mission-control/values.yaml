@@ -1,6 +1,6 @@
 # Default values for mission-control
 image:
-  repository: abhi1693/openclaw-mission-control-backend
+  repository: tororivas/openclaw-mission-control-backend
   tag: "latest"
   pullPolicy: IfNotPresent
 replicaCount: 1
