@@ -19,9 +19,9 @@ spec:
   values:
     replicaCount: 2
     image:
-      repository: tororivas/openclaw-mission-control-backend
+      repository: abhi1693/openclaw-mission-control-backend
       tag: "latest"
     service:
-      type: 10.96.0.1
+      type: ClusterIP
       port: 8000
     # Optionally set ingress.hosts and ingress.enabled to true to create an Ingress
