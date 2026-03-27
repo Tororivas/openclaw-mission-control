@@ -1,0 +1,30 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: mission-control-frontend
+  namespace: mission-control
+spec:
+  interval: 5m
+  releaseName: mission-control-frontend
+  chart:
+    spec:
+      chart: ./deploy/helm/mission-control-frontend
+      sourceRef:
+        kind: GitRepository
+        name: openclaw-mission-control
+        namespace: flux-system
+      interval: 1m
+  values:
+    replicaCount: 1
+    image:
+      repository: ghcr.io/Tororivas/openclaw-mission-control-frontend
+      tag: "latest"
+    service:
+      type: ClusterIP
+      port: 3000
+    ingress:
+      enabled: false
+      className: ""
+      annotations: {}
+      hosts: []
+      tls: []

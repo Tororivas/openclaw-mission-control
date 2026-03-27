@@ -1,0 +1,24 @@
+# Default values for mission-control-postgres
+image:
+  repository: postgres
+  tag: "16-alpine"
+  pullPolicy: IfNotPresent
+
+postgresql:
+  database: mission_control
+  username: postgres
+  password: postgres
+
+service:
+  type: ClusterIP
+  port: 5432
+
+storage:
+  enabled: true
+  size: 8Gi
+  className: ""
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}

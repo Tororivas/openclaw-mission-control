@@ -1,0 +1,31 @@
+# Default values for mission-control-worker
+image:
+  repository: ghcr.io/Tororivas/openclaw-mission-control-backend
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+env:
+  - name: DATABASE_URL
+    value: "postgresql+psycopg://postgres:postgres@mission-control-postgres:5432/mission_control"
+  - name: RQ_REDIS_URL
+    value: "redis://mission-control-redis:6379/0"
+  - name: AUTH_MODE
+    value: "local"
+  - name: LOCAL_AUTH_TOKEN
+    valueFrom:
+      secretKeyRef:
+        name: mission-control-secrets
+        key: LOCAL_AUTH_TOKEN
+  - name: RQ_QUEUE_NAME
+    value: "default"
+  - name: RQ_DISPATCH_THROTTLE_SECONDS
+    value: "2.0"
+  - name: RQ_DISPATCH_MAX_RETRIES
+    value: "3"

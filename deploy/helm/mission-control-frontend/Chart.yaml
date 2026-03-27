@@ -1,0 +1,6 @@
+apiVersion: v2
+name: mission-control-frontend
+description: "Helm chart for OpenClaw Mission Control (frontend)"
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
