@@ -8,4 +8,3 @@ values:
   image:
     repository: myregistry.io/myorg/mission-control
     tag: v1.2.3
-    
