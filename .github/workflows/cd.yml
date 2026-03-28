@@ -13,7 +13,7 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_OWNER: Tororivas
+  IMAGE_OWNER: tororivas
   BACKEND_IMAGE_NAME: openclaw-mission-control-backend
   FRONTEND_IMAGE_NAME: openclaw-mission-control-frontend
 

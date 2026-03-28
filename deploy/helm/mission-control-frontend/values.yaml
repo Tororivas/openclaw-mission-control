@@ -1,6 +1,6 @@
 # Default values for mission-control-frontend
 image:
-  repository: ghcr.io/Tororivas/openclaw-mission-control-frontend
+  repository: ghcr.io/tororivas/openclaw-mission-control-frontend
   tag: "latest"
   pullPolicy: IfNotPresent
 

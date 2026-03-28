@@ -7,7 +7,7 @@ Example override in a HelmRelease:
 ```yaml
 values:
   image:
-    repository: ghcr.io/Tororivas/openclaw-mission-control-frontend
+    repository: ghcr.io/tororivas/openclaw-mission-control-frontend
     tag: v1.2.3
   ingress:
     enabled: true
