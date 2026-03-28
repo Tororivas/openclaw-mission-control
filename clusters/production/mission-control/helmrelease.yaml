@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       # path to the chart inside the repository
-      chart: ./deploy/helm/mission-control
+      chart: ./deploy/helm/mission-control-backend
       # reference the GitRepository defined above
       sourceRef:
         kind: GitRepository
@@ -19,7 +19,7 @@ spec:
   values:
     replicaCount: 2
     image:
-      repository: abhi1693/openclaw-mission-control-backend
+      repository: ghcr.io/Tororivas/openclaw-mission-control-backend
       tag: "latest"
     service:
       type: ClusterIP

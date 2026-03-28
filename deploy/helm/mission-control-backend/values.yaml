@@ -1,6 +1,6 @@
 # Default values for mission-control
 image:
-  repository: abhi1693/openclaw-mission-control-backend
+  repository: ghcr.io/Tororivas/openclaw-mission-control-backend
   tag: "latest"
   pullPolicy: IfNotPresent
 replicaCount: 1
@@ -27,4 +27,15 @@ ingress:
   enabled: false
   hosts: []
   annotations: {}
-env: []
+env:
+  - name: DATABASE_URL
+    value: "postgresql+psycopg://postgres:postgres@mission-control-postgres:5432/mission_control"
+  - name: RQ_REDIS_URL
+    value: "redis://mission-control-redis:6379/0"
+  - name: AUTH_MODE
+    value: "local"
+  - name: LOCAL_AUTH_TOKEN
+    valueFrom:
+      secretKeyRef:
+        name: mission-control-secrets
+        key: LOCAL_AUTH_TOKEN

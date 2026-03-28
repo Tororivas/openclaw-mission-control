@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: mission-control-redis
+  namespace: mission-control
+spec:
+  interval: 5m
+  releaseName: mission-control-redis
+  chart:
+    spec:
+      chart: ./deploy/helm/mission-control-redis
+      sourceRef:
+        kind: GitRepository
+        name: openclaw-mission-control
+        namespace: flux-system
+      interval: 1m
+  values: {}
