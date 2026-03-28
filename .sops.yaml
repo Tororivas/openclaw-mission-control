@@ -1,0 +1,4 @@
+creation_rules:
+  - path_regex: clusters/production/mission-control/secrets/.*\.yaml
+    encrypted_regex: '^(data|stringData)$'
+    age: ['age1s20z4xf3c7l6ycmmta4peu062dk5k7g3g6ezzdz3kzf7kepq09jqyetlrv']
