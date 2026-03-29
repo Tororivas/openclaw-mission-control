@@ -4,3 +4,8 @@ resources:
   - namespace.yaml
   - gitrepository.yaml
   - helmrelease.yaml
+  - helmrelease-frontend.yaml
+  - helmrelease-worker.yaml
+  - helmrelease-postgres.yaml
+  - helmrelease-redis.yaml
+  - secrets/mission-control-secrets.yaml

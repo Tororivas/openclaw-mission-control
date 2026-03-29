@@ -28,6 +28,11 @@ resources: {}
 nodeSelector: {}
 tolerations: []
 affinity: {}
+env:
+  - name: NEXT_PUBLIC_API_URL
+    value: "auto"
+  - name: NEXT_PUBLIC_AUTH_MODE
+    value: "local"
 
 ingress:
   enabled: false
