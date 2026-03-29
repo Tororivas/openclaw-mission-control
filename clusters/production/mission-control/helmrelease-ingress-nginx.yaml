@@ -17,14 +17,11 @@ spec:
       interval: 1h
   values:
     controller:
-      kind: DaemonSet
-      hostNetwork: true
-      dnsPolicy: ClusterFirstWithHostNet
-      reportNodeInternalIp: true
-      publishService:
-        enabled: false
       service:
         enabled: true
         type: ClusterIP
+        externalIPs:
+          - 192.168.1.90
+          - 192.168.1.91
     defaultBackend:
       enabled: true
