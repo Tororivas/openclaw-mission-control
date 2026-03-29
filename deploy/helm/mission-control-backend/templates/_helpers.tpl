@@ -8,5 +8,5 @@
 {{- end -}}
 
 {{- define "mission-control.chart" -}}
-{{- printf "%s-%s" .Chart.Name .Chart.Version -}}
+{{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" -}}
 {{- end -}}
