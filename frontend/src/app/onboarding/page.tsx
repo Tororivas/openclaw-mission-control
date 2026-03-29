@@ -2,6 +2,7 @@
 
 export const dynamic = "force-dynamic";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -12,6 +13,7 @@ import {
   useAuth,
   useUser,
 } from "@/auth/clerk";
+import { isLocalAuthMode } from "@/auth/localAuth";
 import { Globe, Info, RotateCcw, Save, User } from "lucide-react";
 
 import { ApiError } from "@/api/mutator";
@@ -31,6 +33,7 @@ export default function OnboardingPage() {
   const router = useRouter();
   const { isSignedIn } = useAuth();
   const { user } = useUser();
+  const localAuthMode = isLocalAuthMode();
 
   const [name, setName] = useState("");
   const [timezone, setTimezone] = useState("");
@@ -125,13 +128,19 @@ export default function OnboardingPage() {
               </p>
             </div>
             <div className="px-6 py-6">
-              <SignInButton
-                mode="modal"
-                forceRedirectUrl="/onboarding"
-                signUpForceRedirectUrl="/onboarding"
-              >
-                <Button size="lg">Sign in</Button>
-              </SignInButton>
+              {localAuthMode ? (
+                <Button asChild size="lg">
+                  <Link href="/sign-in?redirect_url=%2Fonboarding">Sign in</Link>
+                </Button>
+              ) : (
+                <SignInButton
+                  mode="modal"
+                  forceRedirectUrl="/onboarding"
+                  signUpForceRedirectUrl="/onboarding"
+                >
+                  <Button size="lg">Sign in</Button>
+                </SignInButton>
+              )}
             </div>
           </div>
         </div>
