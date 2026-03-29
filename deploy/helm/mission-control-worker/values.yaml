@@ -23,6 +23,8 @@ env:
       secretKeyRef:
         name: mission-control-secrets
         key: LOCAL_AUTH_TOKEN
+  - name: BASE_URL
+    value: "http://mission-control-mission-control-backend:8000"
   - name: RQ_QUEUE_NAME
     value: "default"
   - name: RQ_DISPATCH_THROTTLE_SECONDS
