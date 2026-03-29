@@ -2,8 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - local-path-storage.yaml
+  - namespace-ingress-nginx.yaml
   - namespace.yaml
   - gitrepository.yaml
+  - helmrepository-ingress-nginx.yaml
+  - helmrelease-ingress-nginx.yaml
   - helmrelease.yaml
   - helmrelease-frontend.yaml
   - helmrelease-worker.yaml

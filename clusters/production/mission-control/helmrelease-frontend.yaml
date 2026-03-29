@@ -23,9 +23,18 @@ spec:
     service:
       type: ClusterIP
       port: 3000
+    env:
+      - name: NEXT_PUBLIC_API_URL
+        value: "http://api.mission-control.local"
+      - name: NEXT_PUBLIC_AUTH_MODE
+        value: "local"
     ingress:
-      enabled: false
-      className: ""
+      enabled: true
+      className: "nginx"
       annotations: {}
-      hosts: []
+      hosts:
+        - host: mission-control.local
+          paths:
+            - path: /
+              pathType: Prefix
       tls: []
