@@ -14,5 +14,6 @@ spec:
         name: openclaw-mission-control
         namespace: flux-system
       interval: 1m
+      reconcileStrategy: Revision
   values:
     fullnameOverride: mission-control-redis
