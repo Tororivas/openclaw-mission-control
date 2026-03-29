@@ -19,7 +19,7 @@ spec:
     replicaCount: 1
     image:
       repository: ghcr.io/tororivas/openclaw-mission-control-frontend
-      tag: "latest"
+      tag: "ad27915"
     service:
       type: ClusterIP
       port: 3000
