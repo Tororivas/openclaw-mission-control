@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - ".github/workflows/cd.yml"
+      - "backend/**"
+      - "frontend/**"
+      - "deploy/**"
+      - "compose.yml"
+      - "Makefile"
   workflow_dispatch:
 
 permissions:
