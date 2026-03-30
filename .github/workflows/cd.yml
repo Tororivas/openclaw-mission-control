@@ -16,6 +16,8 @@ env:
   IMAGE_OWNER: tororivas
   BACKEND_IMAGE_NAME: openclaw-mission-control-backend
   FRONTEND_IMAGE_NAME: openclaw-mission-control-frontend
+  FRONTEND_NEXT_PUBLIC_API_URL: http://api.mission-control.local
+  FRONTEND_NEXT_PUBLIC_AUTH_MODE: local
 
 jobs:
   build-and-push:
@@ -51,6 +53,9 @@ jobs:
           context: ./frontend
           file: frontend/Dockerfile
           push: true
+          build-args: |
+            NEXT_PUBLIC_API_URL=${{ env.FRONTEND_NEXT_PUBLIC_API_URL }}
+            NEXT_PUBLIC_AUTH_MODE=${{ env.FRONTEND_NEXT_PUBLIC_AUTH_MODE }}
           tags: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_OWNER }}/${{ env.FRONTEND_IMAGE_NAME }}:latest
             ${{ env.REGISTRY }}/${{ env.IMAGE_OWNER }}/${{ env.FRONTEND_IMAGE_NAME }}:${{ github.sha }}

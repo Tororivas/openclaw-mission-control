@@ -24,11 +24,12 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
+ARG NEXT_PUBLIC_API_URL=auto
 ARG NEXT_PUBLIC_AUTH_MODE
 
-# If provided at runtime, Next will expose NEXT_PUBLIC_* to the browser as well
-# (but note some values may be baked at build time).
-ENV NEXT_PUBLIC_API_URL=auto
+# Keep runner env aligned with the image build so server-rendered code and any
+# runtime NEXT_PUBLIC_* reads do not drift from the compiled client bundle.
+ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
 ENV NEXT_PUBLIC_AUTH_MODE=${NEXT_PUBLIC_AUTH_MODE}
 
 # Create non-root user before COPY so --chown can reference it.
