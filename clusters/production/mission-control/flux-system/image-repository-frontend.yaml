@@ -1,0 +1,8 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: mission-control-frontend
+  namespace: flux-system
+spec:
+  image: ghcr.io/tororivas/openclaw-mission-control-frontend
+  interval: 5m
