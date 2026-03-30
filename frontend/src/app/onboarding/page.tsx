@@ -23,7 +23,6 @@ import {
   useUpdateMeApiV1UsersMePatch,
 } from "@/api/generated/users/users";
 import { DashboardShell } from "@/components/templates/DashboardShell";
-import { LocalAuthLogin } from "@/components/organisms/LocalAuthLogin";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import SearchableSelect from "@/components/ui/searchable-select";
@@ -130,9 +129,9 @@ export default function OnboardingPage() {
             </div>
             <div className="px-6 py-6">
               {localAuthMode ? (
-                <div className="-mx-6 -mb-6">
-                  <LocalAuthLogin />
-                </div>
+                <Button asChild size="lg">
+                  <Link href="/sign-in?redirect_url=%2Fonboarding">Sign in</Link>
+                </Button>
               ) : (
                 <SignInButton
                   mode="modal"
