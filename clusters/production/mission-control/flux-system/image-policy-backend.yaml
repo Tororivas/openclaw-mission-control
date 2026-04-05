@@ -1,0 +1,13 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImagePolicy
+metadata:
+  name: mission-control-backend
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: mission-control-backend
+  filterTags:
+    pattern: "^latest$"
+  policy:
+    semver:
+      range: ">=0.0.0"

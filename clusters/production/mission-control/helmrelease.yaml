@@ -21,7 +21,7 @@ spec:
     replicaCount: 2
     image:
       repository: ghcr.io/tororivas/openclaw-mission-control-backend
-      tag: "latest"
+      tag: "latest" # {"$imagepolicy": "flux-system:mission-control-backend:tag"}
     service:
       type: ClusterIP
       port: 8000
