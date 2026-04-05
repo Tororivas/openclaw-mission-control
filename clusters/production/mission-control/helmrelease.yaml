@@ -34,7 +34,10 @@ spec:
       tls: []
     env:
       - name: DATABASE_URL
-        value: "postgresql+psycopg://postgres:postgres@mission-control-postgres:5432/mission_control"
+        valueFrom:
+          secretKeyRef:
+            name: mission-control-secrets
+            key: DATABASE_URL
       - name: RQ_REDIS_URL
         value: "redis://mission-control-redis:6379/0"
       - name: AUTH_MODE

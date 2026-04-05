@@ -31,7 +31,9 @@ ingress:
   tls: []
 env:
   - name: DATABASE_URL
-    value: "postgresql+psycopg://postgres:postgres@mission-control-postgres:5432/mission_control"
+    value: "postgresql+psycopg://postgres:login@192.168.1.93:5432/mission-control"
+  - name: CORS_ORIGINS
+    value: "http://mission-control.local,http://localhost:3000,http://localhost:5173"
   - name: RQ_REDIS_URL
     value: "redis://mission-control-redis:6379/0"
   - name: AUTH_MODE
@@ -42,6 +44,6 @@ env:
         name: mission-control-secrets
         key: LOCAL_AUTH_TOKEN
   - name: BASE_URL
-    value: "http://mission-control-mission-control-backend:8000"
+    value: "http://mission-control-backend-mission-control-backend:8000"
   - name: DB_AUTO_MIGRATE
     value: "true"

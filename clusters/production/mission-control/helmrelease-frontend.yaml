@@ -19,7 +19,7 @@ spec:
     replicaCount: 1
     image:
       repository: ghcr.io/tororivas/openclaw-mission-control-frontend
-      tag: "ghcr.io/tororivas/openclaw-mission-control-frontend:26" # {"$imagepolicy": "flux-system:mission-control-frontend"}
+      tag: "26" # {"$imagepolicy": "flux-system:mission-control-frontend:tag"}
     service:
       type: ClusterIP
       port: 3000
