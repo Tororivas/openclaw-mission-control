@@ -29,4 +29,18 @@ ingress:
   hosts: []
   annotations: {}
   tls: []
-env: []
+env:
+  - name: DATABASE_URL
+    value: ""
+  - name: RQ_REDIS_URL
+    value: "redis://mission-control-redis:6379/0"
+  - name: AUTH_MODE
+    value: "local"
+  - name: LOCAL_AUTH_TOKEN
+    value: ""
+  - name: BASE_URL
+    value: ""
+  - name: DB_AUTO_MIGRATE
+    value: "true"
+  - name: CORS_ORIGINS
+    value: ""
