@@ -31,16 +31,22 @@ ingress:
   tls: []
 env:
   - name: DATABASE_URL
-    value: ""
+    valueFrom:
+      secretKeyRef:
+        name: mission-control-secrets
+        key: DATABASE_URL
   - name: RQ_REDIS_URL
     value: "redis://mission-control-redis:6379/0"
   - name: AUTH_MODE
     value: "local"
   - name: LOCAL_AUTH_TOKEN
-    value: ""
+    valueFrom:
+      secretKeyRef:
+        name: mission-control-secrets
+        key: LOCAL_AUTH_TOKEN
   - name: BASE_URL
-    value: ""
+    value: "http://api.mission-control.local"
   - name: DB_AUTO_MIGRATE
     value: "true"
   - name: CORS_ORIGINS
-    value: ""
+    value: "http://mission-control.local"
